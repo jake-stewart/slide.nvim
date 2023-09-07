@@ -10,10 +10,11 @@ vim.keymap.set({"n", "v"}, "<leader>k", slide.up)
 vim.keymap.set({"n", "v"}, "<leader>j", slide.down)
 ```
 
-slide.nvim can also be syntax aware and stop sliding once highlighting changes
+slide.nvim is syntax aware and stops sliding once highlighting changes
+this can be disabled with
 
 ```
 local slide = require("slide")
-vim.keymap.set({"n", "v"}, "<leader>k", slide.upHL)
-vim.keymap.set({"n", "v"}, "<leader>j", slide.downHL)
+vim.keymap.set({"n", "v"}, "<leader>k", function slide.up(false) end)
+vim.keymap.set({"n", "v"}, "<leader>j", function slide.down(false) end)
 ```

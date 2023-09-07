@@ -65,7 +65,7 @@ local function slide(direction, smart_syntax)
                 end
             elseif #stack == 0 then
                 break
-            elseif stack[-1] ~= newstack[-1] then
+            elseif stack[#stack] ~= newstack[#newstack] then
                 break
             end
         end
@@ -108,16 +108,12 @@ local function slide(direction, smart_syntax)
 end
 
 return {
-    up = function()
-        return slide(-1, false)
+    up = function(syntax)
+        syntax = (syntax == false) == false
+        return slide(-1, syntax)
     end,
-    down = function()
-        return slide(1, false)
-    end,
-    upHL = function()
-        return slide(-1, true)
-    end,
-    downHL = function()
-        return slide(1, true)
+    down = function(syntax)
+        syntax = (syntax == false) == false
+        return slide(1, syntax)
     end,
 }
