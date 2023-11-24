@@ -2,6 +2,8 @@ slide.nvim
 ----------
 slide up and down columns
 
+<a href="https://asciinema.org/a/4AoLzZLGDoXxZEcCaldfbNEN1" target="_blank"><img src="https://asciinema.org/a/4AoLzZLGDoXxZEcCaldfbNEN1.svg" /></a>
+
 ### usage
 
 ```
