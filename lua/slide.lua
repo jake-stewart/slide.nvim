@@ -88,23 +88,10 @@ local function slide(direction, smart_syntax)
             end
         end
     end
-
-    local jump
-    local jump_char
-
-    if direction == 1 then
-        jump = line - vim.fn.line('.') - 1
-        jump_char = 'j'
-    else
-        jump = vim.fn.line('.') - line - 1
-        jump_char = 'k'
+    if vim.fn.mode(true) == "no" then
+        vim.fn.feedkeys("V", "nx")
     end
-
-    if jump > 1 then
-        vim.fn.feedkeys(jump .. jump_char, "n")
-    elseif jump == 1 then
-        vim.fn.feedkeys(jump_char, "n")
-    end
+    vim.fn.setpos(".", { 0, line - direction, col, 0 })
 end
 
 return {
